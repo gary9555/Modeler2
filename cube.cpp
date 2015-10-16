@@ -2,6 +2,11 @@
 #include <GL/gl.h>
 #include "CUBE.h"
 
+//--------------------------------------------------------------------------
+// Adapted from online open source project, 
+// Reference to http://www.paulsprojects.net/opengl/metaballs/metaballs.html
+//---------------------------------------------------------------------------
+
 
 bool CUBE_GRID::CreateMemory()
 {

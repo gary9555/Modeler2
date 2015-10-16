@@ -704,7 +704,7 @@ void drawMetaarm(float size)
 	METABALL metaballs[numMetaballs];
 
 	metaballs[0].Init(VECTOR3D(2.0f, 0.0f, 0.0f), 6.0f);
-	metaballs[1].Init(VECTOR3D(3.8f, 0.0f, 0.0f), size);//8.5f
+	metaballs[1].Init(VECTOR3D(3.8f, 0.0f, 0.0f), size);
 	metaballs[2].Init(VECTOR3D(7.4f, 0.0f, 0.0f), 5.0f);
 	VECTOR3D ballToPoint;
 	float squaredRadius;

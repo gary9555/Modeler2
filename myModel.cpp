@@ -25,21 +25,27 @@ public:
 		for (int j = 0; j < MAX_COUNT / 4; i++, j++){
 			leftLegX[i] = -45 * j / (MAX_COUNT / 4);
 			body[i] = leftLegX[i] * 0.05;
+			light[i] = 0.5 + 2*j / (MAX_COUNT / 4);
 		}
 		for (int j = 0; j < MAX_COUNT / 4; i++, j++){
 			leftLegX[i] = -45 + 45 * j / (MAX_COUNT / 4);
 			body[i] = leftLegX[i] * 0.05;
+			light[i] = 2.5 - 2 * j / (MAX_COUNT / 4);
 		}
 		for (int j = 0; j < MAX_COUNT / 4; i++, j++){
 			leftLegX[i] = 45 * j / (MAX_COUNT / 4);
 			body[i] = -leftLegX[i] * 0.05;
+			light[i] = 0.5 + 2 * j / (MAX_COUNT / 4);
 		}
 		for (int j = 0; j < MAX_COUNT / 4; i++, j++){
 			leftLegX[i] = 45 - 45 * j / (MAX_COUNT / 4);
 			body[i] = -leftLegX[i] * 0.05;
+			light[i] = 2.5 - 2 * j / (MAX_COUNT / 4);
 		}
-		for (i = 0; i < MAX_COUNT; i++)
-			rightLegX[i] = -leftLegX[i];			
+		for (i = 0; i < MAX_COUNT; i++){
+			rightLegX[i] = -leftLegX[i];
+		}
+
 	}
 
 	
@@ -49,6 +55,7 @@ private:
 	int leftLegX[60];
 	int rightLegX[60];
 	float body[60];
+	float light[60];
 };
 
 // We need to make a creator function, mostly because of
@@ -72,7 +79,15 @@ void MyModel::draw()
     ModelerView::draw();
 	
 	GLfloat lightPosition0[] = { VAL(LIGHT_X), VAL(LIGHT_Y), VAL(LIGHT_Z), 0 };
+	
 	GLfloat lightDiffuse0[] = { VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), 1 };
+	
+	if (VAL(ANIMATE)){
+		lightDiffuse0[0] = light[animateCounter];
+		lightDiffuse0[1] = light[animateCounter];
+		lightDiffuse0[2] = light[animateCounter];
+		lightDiffuse0[3] = 1;
+	}
 
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition0);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse0);

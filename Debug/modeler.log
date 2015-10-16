@@ -1,24 +1,35 @@
-﻿Build started 2015/10/16 22:23:38.
+﻿Build started 2015/10/16 23:08:06.
      1>Project "D:\Documents\Academics\COMP4411\ModSkelF14\modeler.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Ilocal\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt myModel.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Ilocal\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt modelerdraw.cpp modelerui.cxx myModel.cpp
          myModel.cpp
      1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(27): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(31): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(35): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(39): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(74): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(75): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(85): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(119): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(144): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(174): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(219): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(219): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(223): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(233): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(381): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(385): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(28): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(32): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(33): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(37): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(38): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(42): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(43): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(81): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(83): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(100): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(134): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(159): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(189): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(234): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(234): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(238): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(248): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(396): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\documents\academics\comp4411\modskelf14\mymodel.cpp(400): warning C4305: 'argument' : truncation from 'double' to 'float'
+         modelerui.cxx
+     1>d:\documents\academics\comp4411\modskelf14\modelerui.cxx(103): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         modelerdraw.cpp
+     1>d:\documents\academics\comp4411\modskelf14\modelerdraw.cpp(155): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         Generating Code...
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug/modeler.exe" /INCREMENTAL /NOLOGO /LIBPATH:local\lib opengl32.lib glu32.lib wsock32.lib fltk.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug/modeler.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:".\Debug\modeler.lib" /MACHINE:X86 /SAFESEH:NO .\Debug/bitmap.obj
          .\Debug/camera.obj
@@ -35,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:14.11
+Time Elapsed 00:00:21.67

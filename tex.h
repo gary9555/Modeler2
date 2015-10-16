@@ -1,5 +1,9 @@
 #ifndef TEX_H
 #define TEX_H
+//-----------------------------------------------------------------------------
+// Adapted from github open source code
+// Reference to vivek2612, link: https://github.com/vivek2612/Human-Model-OpenGL
+//-----------------------------------------------------------------------------
 
 #include <FL/gl.h>
 #include <FL/glut.H>

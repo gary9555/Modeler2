@@ -1,4 +1,9 @@
 #include "tex.h"
+//-----------------------------------------------------------------------------
+// Adapted from github open source code
+// Reference to vivek2612, link: https://github.com/vivek2612/Human-Model-OpenGL
+//-----------------------------------------------------------------------------
+
 
 GLuint Texture::loadBMP_custom(const char * imagepath){
 	// Data read from the header of the BMP file

@@ -1,5 +1,10 @@
 #include <FL/gl.h>
 #include "vector3d.h"
+//--------------------------------------------------------------------------
+// Adapted from online open source project, 
+// Reference to http://www.paulsprojects.net/opengl/metaballs/metaballs.html
+//---------------------------------------------------------------------------
+
 
 const int maxGridSize = 60;
 
