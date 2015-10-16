@@ -1,0 +1,34 @@
+﻿Build started 2015/10/16 21:37:38.
+     1>Project "D:\Documents\Academics\COMP4411\ModSkelF14\modeler.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Ilocal\include /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release/" /Fd".\Release/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt myModel.cpp
+         myModel.cpp
+     1>myModel.cpp(27): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>myModel.cpp(31): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>myModel.cpp(35): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>myModel.cpp(39): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>myModel.cpp(74): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>myModel.cpp(75): warning C4244: 'initializing' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>myModel.cpp(99): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>myModel.cpp(149): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>myModel.cpp(215): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>myModel.cpp(215): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>myModel.cpp(219): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>myModel.cpp(229): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>myModel.cpp(409): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>myModel.cpp(413): warning C4305: 'argument' : truncation from 'double' to 'float'
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release/modeler.exe" /INCREMENTAL:NO /NOLOGO local/lib/fltk.lib wsock32.lib opengl32.lib glu32.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release/modeler.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:".\Release\modeler.lib" /MACHINE:X86 /SAFESEH:NO .\Release/bitmap.obj
+         .\Release/camera.obj
+         .\Release/modelerapp.obj
+         .\Release/modelerdraw.obj
+         .\Release/modelerui.obj
+         .\Release/modelerview.obj
+         .\Release/myModel.obj
+         .\Release/tex.obj
+         modeler.vcxproj -> D:\Documents\Academics\COMP4411\ModSkelF14\.\Release\modeler.exe
+     1>Done Building Project "D:\Documents\Academics\COMP4411\ModSkelF14\modeler.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.70
