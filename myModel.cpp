@@ -70,7 +70,7 @@ void MyModel::draw()
     // matrix stuff.  Unless you want to fudge directly with the 
 	// projection matrix, don't bother with this ...
     ModelerView::draw();
-	// trying VS github
+	
 	GLfloat lightPosition0[] = { VAL(LIGHT_X), VAL(LIGHT_Y), VAL(LIGHT_Z), 0 };
 	GLfloat lightDiffuse0[] = { VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), 1 };
 
@@ -80,20 +80,6 @@ void MyModel::draw()
 	glLightfv(GL_LIGHT1, GL_POSITION, lightPosition1);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse1);
 
-	
-
-	
-
-
-
-	/*
-	setAmbientColor(.1f,.1f,.1f);	
-	setDiffuseColor(COLOR_RED);
-	glPushMatrix();
-	glTranslated(-5,0,-5);
-	drawBox(10,0.01f,10);
-	glPopMatrix();
-	*/
 
 	// draw the sample model
 	setAmbientColor(0.1, 0.1, 0.1);
@@ -127,7 +113,16 @@ void MyModel::draw()
 					glRotated(VAL(LEFT_UPPER_ARM_Y) - VAL(LEFT_LINK_MOTION) * 35 / 90, 0.0, 1.0, 0.0);
 					glRotated(VAL(LEFT_UPPER_ARM_Z) + VAL(LEFT_LINK_MOTION) * 25 / 90, 0.0, 0.0, 1.0);
 					glRotated(90, 1.0, 0.0, 0.0);
-					drawCylinder(4.5,0.8,0.6);
+					if (VAL(META_ARM)){
+						glScaled(0.2, 0.2, 0.5);
+						glRotated(-90, 0.0, 1.0, 0.0);
+						drawMetaarm(VAL(META_ARM_SIZE));
+						glRotated(90, 0.0, 1.0, 0.0);
+						glScaled(5, 5, 2);
+					}
+					else{
+						drawCylinder(4.5, 0.8, 0.6);
+					}
 						// Left lower arm pivot
 						glTranslated(0, 0, 4.5);
 						drawSphere(0.6);
@@ -173,7 +168,16 @@ void MyModel::draw()
 					glRotated(VAL(RIGHT_UPPER_ARM_Y) + VAL(RIGHT_LINK_MOTION) * 35 / 90, 0.0, 1.0, 0.0);
 					glRotated(VAL(RIGHT_UPPER_ARM_Z) - VAL(RIGHT_LINK_MOTION) * 25 / 90, 0.0, 0.0, 1.0);
 					glRotated(90, 1.0, 0.0, 0.0);
-					drawCylinder(4.5, 0.8, 0.6);
+					if (VAL(META_ARM)){
+						glScaled(0.2, 0.2, 0.5);
+						glRotated(-90, 0.0, 1.0, 0.0);
+						drawMetaarm(VAL(META_ARM_SIZE));
+						glRotated(90, 0.0, 1.0, 0.0);
+						glScaled(5, 5, 2);
+					}
+					else{
+						drawCylinder(4.5, 0.8, 0.6);
+					}						
 						// Right lower arm pivot
 						glTranslated(0, 0, 4.5);
 						drawSphere(0.6);
@@ -313,38 +317,6 @@ void MyModel::draw()
 	if (animateCounter >= MAX_COUNT)
 		animateCounter = 0;
 	
-	/*
-	glPushMatrix();
-	glTranslated(VAL(XPOS), VAL(YPOS), VAL(ZPOS));
-
-		glPushMatrix();
-		glTranslated(-1.5, 0, -2);
-		glScaled(3, 1, 4);
-		drawBox(1,1,1);
-		glTranslated(0.5,0.3,-0.1);
-		drawBox(0.2,0.4,0.1);
-			glPushMatrix();
-			glTranslated(0.1, 0.2, 0.05);
-			drawBox(0.02,VAL(WIRE),0.02);
-			glPopMatrix();
-		glPopMatrix();
-
-		// draw cannon
-		glPushMatrix();
-		glRotated(VAL(ROTATE), 0.0, 1.0, 0.0);
-		glRotated(-90, 1.0, 0.0, 0.0);
-		drawCylinder(VAL(HEIGHT), 0.1, 0.1);
-
-		glTranslated(0.0, 0.0, VAL(HEIGHT));
-		drawCylinder(1, 1.0, 0.9);
-
-		glTranslated(0.0, 0.0, 0.5);
-		glRotated(90, 1.0, 0.0, 0.0);
-		drawCylinder(4, 0.1, 0.2);
-		glPopMatrix();
-
-	glPopMatrix();
-	*/
 }
 
 int main()
@@ -403,19 +375,20 @@ int main()
 	controls[RIGHT_HAND_Z] = ModelerControl("Right Hand Z", -60, 60, 1, 0);
 	controls[LEFT_THUMB] = ModelerControl("Left Thumb", -90, 0, 1, 0);
 	controls[RIGHT_THUMB] = ModelerControl("Right Thumb", -90, 0, 1, 0);
-	controls[GUN] = ModelerControl("Gun", 0, 1, 1, 0);
-	controls[HAT] = ModelerControl("Hat", 0, 1, 1, 0);
+	controls[GUN] = ModelerControl("Gun?", 0, 1, 1, 0);
+	controls[HAT] = ModelerControl("Hat?", 0, 1, 1, 0);
 	controls[CIGAR] = ModelerControl("Cigar", 0, 1, 1, 0);
 	controls[NOSE_SIZE] = ModelerControl("Nose Size", 1, 1.5, 0.1, 1);
 	controls[EYE_COLOR] = ModelerControl("Eye Color", 0, 2, 1, 0);
 	controls[EYE_SIZE] = ModelerControl("Eye Size", 1, 2, 0.1f, 1);
 	controls[EYE_BALL_SIZE] = ModelerControl("Eye Ball Size", 1, 1.5, 0.1f, 1);
 	controls[EYE_DIST] = ModelerControl("Eye Distance", 0.2, 0.5, 0.05, 0.3f);
-	controls[FRAME_ALL] = ModelerControl("Frame All", 0, 1, 1, 0);
+	controls[FRAME_ALL] = ModelerControl("Frame All?", 0, 1, 1, 0);
 	controls[LEFT_HAND_CONTRAINT_X] = ModelerControl("Left Hand Constraint X", 0, 1, 1, 0);
 	controls[LEFT_HAND_CONTRAINT_Y] = ModelerControl("Left Hand Constraint Y", 0, 1, 1, 0);
 	controls[LEFT_HAND_CONTRAINT_Z] = ModelerControl("Left Hand Constraint Z", 0, 1, 1, 0);
-
+	controls[META_ARM] = ModelerControl("Meta Arm?", 0, 1, 1, 0);
+	controls[META_ARM_SIZE] = ModelerControl("Meta Arm Size", 6, 25, 0.1f, 8.5);
 
 	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 1, 0);
 

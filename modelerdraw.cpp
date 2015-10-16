@@ -4,6 +4,9 @@
 #include <GL/glu.h>
 #include <cstdio>
 #include <math.h>
+#include "cube.h"
+#include "metaballs.h"
+
 
 // ********************************************************
 // Support functions from previous version of modeler
@@ -681,6 +684,69 @@ void drawHat(double innerR, double outerR){
 	glRotated(-90, 1.0, 0.0, 0.0);
 	drawCylinder(0.1, outerR, outerR);
 	glPopMatrix();
+}
+
+void drawMetaarm(float size)
+{
+	CUBE_GRID cubeGrid;
+	cubeGrid.CreateMemory();
+	cubeGrid.Init(40);
+
+	for (int i = 0; i<cubeGrid.numVertices; i++)
+	{
+		cubeGrid.vertices[i].value = 0.0f;
+		cubeGrid.vertices[i].normal.LoadZero();
+	}
+
+	//evaluate the scalar field at each point
+
+	const int numMetaballs = 3;
+	METABALL metaballs[numMetaballs];
+
+	metaballs[0].Init(VECTOR3D(2.0f, 0.0f, 0.0f), 6.0f);
+	metaballs[1].Init(VECTOR3D(3.8f, 0.0f, 0.0f), size);//8.5f
+	metaballs[2].Init(VECTOR3D(7.4f, 0.0f, 0.0f), 5.0f);
+	VECTOR3D ballToPoint;
+	float squaredRadius;
+	VECTOR3D ballPosition;
+	float normalScale;
+	for (int i = 0; i<numMetaballs; i++)
+	{
+		squaredRadius = metaballs[i].squaredRadius;
+		ballPosition = metaballs[i].position;
+
+		//VC++6 standard does not inline functions
+		//by inlining these maually, in this performance-critical area,
+		//almost a 100% increase in speed is found
+		for (int j = 0; j<cubeGrid.numVertices; j++)
+		{
+			//ballToPoint=cubeGrid.vertices[j].position-ballPosition;
+			ballToPoint.x = cubeGrid.vertices[j].position.x - ballPosition.x;
+			ballToPoint.y = cubeGrid.vertices[j].position.y - ballPosition.y;
+			ballToPoint.z = cubeGrid.vertices[j].position.z - ballPosition.z;
+
+			//get squared distance from ball to point
+			//float squaredDistance=ballToPoint.GetSquaredLength();
+			float squaredDistance = ballToPoint.x*ballToPoint.x +
+				ballToPoint.y*ballToPoint.y +
+				ballToPoint.z*ballToPoint.z;
+			if (squaredDistance == 0.0f)
+				squaredDistance = 0.0001f;
+
+			//value = r^2/d^2
+			cubeGrid.vertices[j].value += squaredRadius / squaredDistance;
+
+			//normal = (r^2 * v)/d^4
+			normalScale = squaredRadius / (squaredDistance*squaredDistance);
+			//cubeGrid.vertices[j].normal+=ballToPoint*normalScale;
+			cubeGrid.vertices[j].normal.x += ballToPoint.x*normalScale;
+			cubeGrid.vertices[j].normal.y += ballToPoint.y*normalScale;
+			cubeGrid.vertices[j].normal.z += ballToPoint.z*normalScale;
+		}
+	}
+
+
+	cubeGrid.DrawSurface(1.0f);
 }
 
 
