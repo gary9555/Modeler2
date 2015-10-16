@@ -58,6 +58,7 @@ enum myModelControls
 	LEFT_FOOT_X,
 	RIGHT_FOOT_X,
 	ANIMATE,
+	LIGHT_CHANGE,
 	GUN,
 	HAT,
 	CIGAR,

@@ -72,9 +72,10 @@ void MyModel::draw()
 
 	if (VAL(FRAME_ALL)){
 		ModelerView::m_camera->setDolly(-50.0);
+		ModelerView::m_camera->setLookAt(Vec3f(0, 0, 0));
 	}
     // This call takes care of a lot of the nasty projection 
-    // matrix stuff.  Unless you want to fudge directly with the 
+    // matrix stuff.  Unless you want to fudge directly with theh 
 	// projection matrix, don't bother with this ...
     ModelerView::draw();
 	
@@ -82,7 +83,7 @@ void MyModel::draw()
 	
 	GLfloat lightDiffuse0[] = { VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), VAL(LIGHT_INTENSITY), 1 };
 	
-	if (VAL(ANIMATE)){
+	if (VAL(ANIMATE)&&VAL(LIGHT_CHANGE)){
 		lightDiffuse0[0] = light[animateCounter];
 		lightDiffuse0[1] = light[animateCounter];
 		lightDiffuse0[2] = light[animateCounter];
@@ -406,6 +407,7 @@ int main()
 	controls[META_ARM_SIZE] = ModelerControl("Meta Arm Size", 6, 25, 0.1f, 8.5);
 
 	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 1, 0);
+	controls[LIGHT_CHANGE] = ModelerControl("Light Change", 0, 1, 1, 0);
 
     ModelerApplication::Instance()->Init(&createMyModel, controls, NUMCONTROLS);
     return ModelerApplication::Instance()->Run();
